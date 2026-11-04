@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JobTrack | My Application Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            <h1>JobTrack</h1>
+            <p>My personal job application tracker</p>
+        </div>
+
+        <div class="profile">
+            <span>Welcome back, Irmak!</span>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- DASHBOARD INTRO -->
+        <section class="welcome-section">
+            <h2>My Job Search Dashboard</h2>
+            <p>
+                Keep track of your applications,
+                interviews and career opportunities.
+            </p>
+        </section>
+
+        <!-- STATISTICS -->
+        <section class="statistics">
+
+            <article class="stat-card">
+                <h3>Total Applications</h3>
+                <p id="total-applications">0</p>
+            </article>
+
+            <article class="stat-card">
+                <h3>Interviews</h3>
+                <p id="total-interviews">0</p>
+            </article>
+
+            <article class="stat-card">
+                <h3>Offers</h3>
+                <p id="total-offers">0</p>
+            </article>
+
+            <article class="stat-card">
+                <h3>Rejected</h3>
+                <p id="total-rejected">0</p>
+            </article>
+
+        </section>
+
+        <!-- ADD APPLICATION -->
+        <section class="application-form-section">
+
+            <h2>Add New Application</h2>
+
+            <form id="application-form">
+
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="e.g. Siemens"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="position">Job Position</label>
+                    <input
+                        type="text"
+                        id="position"
+                        name="position"
+                        placeholder="e.g. Software Engineering Intern"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="job-type">Employment Type</label>
+                    <select id="job-type" name="jobType" required>
+                        <option value="">Select job type</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Werkstudent">Werkstudent</option>
+                        <option value="Minijob">Minijob</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Full-time">Full-time</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        placeholder="e.g. Berlin"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="application-date">
+                        Application Date
+                    </label>
+                    <input
+                        type="date"
+                        id="application-date"
+                        name="applicationDate"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Application Status</label>
+                    <select id="status" name="status" required>
+                        <option value="Applied">Applied</option>
+                        <option value="Interview">Interview</option>
+                        <option value="Offer">Offer</option>
+                        <option value="Rejected">Rejected</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea
+                        id="notes"
+                        name="notes"
+                        rows="3"
+                        placeholder="Interview dates, contacts, reminders..."
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="add-btn">
+                    + Add Application
+                </button>
+             
+
+                 <button type="button" id="cancel-edit-btn" class="cancel-btn" hidden>
+                     Cancel Edit
+                 </button>
+ 
+            </form>
+        </section>
+
+        <!-- APPLICATION LIST -->
+        <section class="applications-section">
+
+            <h2>My Applications</h2>
+
+            <div class="filters">
+
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search by company or position..."
+                    aria-label="Search applications"
+                >
+
+                <select id="filter-status" aria-label="Filter by status">
+                    <option value="All">All Statuses</option>
+                    <option value="Applied">Applied</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Offer">Offer</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+
+            </div>
+
+            <div class="table-wrapper">
+                <table id="applications-table">
+
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Position</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="applications-list">
+                        <!-- JavaScript will add applications here -->
+                    </tbody>
+
+                </table>
+            </div>
+
+            <p id="empty-message">
+                No applications yet. Add your first one!
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>JobTrack | Built by Irmak Arslan</p>
+        <p>Frontend Portfolio Project - 2026</p>
+    </footer>
+
+</body>
+</html>
